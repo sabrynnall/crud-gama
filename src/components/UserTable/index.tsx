@@ -6,12 +6,13 @@ import {BsTrashFill, BsPenFill} from 'react-icons/bs';
 interface UserTableProps {
     users: User[];
     onDelete: (id: number) => void;
-    onClick: () => void;
+    onClick: (user: User) => void;
 }
 
 const UserTable: React.FC<UserTableProps> = ({
   users,
   onDelete,
+  onClick,
 }) => {
   return (
     <Container fluid='sm' style={{marginTop: 25}}>
@@ -36,7 +37,7 @@ const UserTable: React.FC<UserTableProps> = ({
               type='button'
               variant='primary'
               style={{marginRight: 5}}
-              onClick={() => {}}>
+              onClick={() => onClick(user)}>
                 <BsPenFill size={18}/>
               </Button>
               <Button 
